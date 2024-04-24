@@ -43,10 +43,13 @@ function App() {
                   <p>리그 오브 레전드</p>
                 </div>
                 <div id='tcSecond'>
-                    <label for="userSearch">
+                    <label for="tcUserSearch">
                       <i class="fa-solid fa-magnifying-glass" style={{color: "#FFD43B;"}}></i>
                     </label>
-                    <input id='userSearch' type='text' value={userName} onChange={e=>setUserName(e.target.value)} placeholder='Search'/>
+                    <input id='tcUserSearch' type='text' value={userName} onChange={e=>setUserName(e.target.value)} placeholder='Search'/>
+                </div>
+                <div id='tcThird'>
+                    <a href='https://www.op.gg/'>op.gg 바로가기</a>
                 </div>
             </div>
         </div>
