@@ -1,22 +1,69 @@
 import './css/App.css';
 import lollogo from './images/lollogo.png'
 import logo from './images/image.png'
-import React, { useState, useContext,useEffect } from 'react';
+import React, { useState, useContext,useEffect,createContext } from 'react';
 import {Routes, Route,Link} from "react-router-dom";
-function App() {
-  const apiKey = "RGAPI-34d74300-b044-4e5d-b177-cd9bdd775bfa";
-  const url ="https://asia.api.riotgames.com";
 
+import championsData from './jsonList/champions.json'; // champions.json 파일의 경로에 맞게 조정
+
+import Footer from './Footer';
+import MainCon from './MainContent';
+import Ranking from './Ranking';
+import Rotation from './Rotation';
+
+export const MiniggContext = createContext(); // 전역변수 생성
+
+function App() {
   const [topUserName,setTopUserName] = useState("");
   const [userName,setUserName] = useState("");
+  const [championRotationList,setChampionRotationList] = useState([]);
+  const [summonerRankingList,setSummonerRankingList] = useState([]);
+
+
+  const rotationList = ()=>{
+    fetch("http://localhost:8080/championRotationList")
+    .then(resp=>resp.json())
+    .then(res=>{
+        
+      setChampionRotationList(Object.keys(championsData.data).filter(championName => 
+        res.freeChampionIds.includes(parseInt(championsData.data[championName].key))
+      ));
+
+    })
+    .catch(e=>{console.log(e);})
+
+  }
+
+  const leagueRankingList = ()=>{
+    fetch("http://localhost:8080/LeagueRanking")
+    .then(resp=>resp.json())
+    .then(res=>{
+      setSummonerRankingList(res);
+      console.log(res);
+    })
+    .catch(e=>{console.log(e);})
+
+  }
+  
 
 
   useEffect(() => {
+    // 아이콘 받을라고 라이브러리 추가한거임
     const script = document.createElement("script");
     script.src = "https://kit.fontawesome.com/0ddb604158.js";
     script.crossorigin = "anonymous";
     document.body.appendChild(script);
-  });
+    rotationList();
+    leagueRankingList();
+  },[]);
+
+  
+ 
+ 
+
+
+
+  
 
 
   const handleChange = (e) => {
@@ -34,92 +81,59 @@ function App() {
       let nickName = topUserName.substring(0,topUserName.indexOf("#")).trim();
       let tag = topUserName.substring(topUserName.indexOf("#")+1);
 
-      fetch(url+"/riot/account/v1/accounts/by-riot-id/"+nickName+"/"+tag+"?api_key="+apiKey)
-      .then(res=>res.text())
-      .then(result=>{
-        console.log(result);
+      
+      fetch("http://localhost:8080/profile?nickName="+nickName+"&tag="+tag)
+      .then(resp=>resp.text())
+      .then(res=>{
+          // console.log(`res ${res}`);
+          console.log(res);
       })
-      .catch(err=>{console.log(err);})
+      .catch(e=>{console.log(e);})
+
 
     }
   };
 
   return (
-    <main>
-      <header>
-        <section>
-            <div className='search-wrap'>
-              <label for="userSearch">
-                <i class="fa-solid fa-magnifying-glass" style={{color: "#FFD43B;"}}></i>
-              </label>
-              <input id='userSearch' type='text' value={topUserName} onChange={handleChange}  onKeyDown={handleKeyPress} placeholder='Search'/>
-            </div>
-          
-            <button type='button' id='LanguageChange'>한국어</button>
-        </section>
-        <section>
-          <ul id='nav'>
-              <li><img id='lolLogo' src={lollogo}/></li>
-              <li><Link to="/">홈</Link></li>
-              <li><Link to="/1">챔피언</Link></li>
-              <li><Link to="/2">티어리스트</Link></li>
-              <li><Link to="/3">랭킹</Link></li>
-          </ul>
-        </section>
-      </header>
-
-      <div className='main-wrap'>
-        <div className='content-wrap top-content'>
-            <div>
-                <div id='tcFirst'>
-                  <img id='lolLogo' src={lollogo}/>
-                  <p>리그 오브 레전드</p>
-                </div>
-                <div id='tcSecond'>
-                    <label for="tcUserSearch">
-                      <i class="fa-solid fa-magnifying-glass" style={{color: "#FFD43B;"}}></i>
-                    </label>
-                    <input id='tcUserSearch' type='text' value={userName} onChange={e=>setUserName(e.target.value)} placeholder='Search'/>
-                </div>
-                <div id='tcThird'>
-                    <a href='https://www.op.gg/'>op.gg 바로가기</a>
-                </div>
-            </div>
-        </div>
-        <div className='content-wrap middle-content'>
-          
-        </div>
-        <div className='content-wrap bottom-content'>
-          
-        </div>
-
-      </div>
-
-      <footer>
-        <div>
-          <div id='ftFirst' className='ft-wrap'>
-            <img src={logo}/>
-            <a href=''>포트폴리오</a>
-          </div>
-          <div id='ftSecond' className='ft-wrap'>
-            <ul className='ft-ul'>
-              <li>경력</li>
-              <li>(주)와임</li>
-              <li>티쿤글로벌</li>
+    <MiniggContext.Provider value={{userName,setUserName,championRotationList,setChampionRotationList,summonerRankingList,setSummonerRankingList}}>
+      <main>
+        <header>
+          <section>
+              <div className='search-wrap'>
+                <label for="userSearch">
+                  <i class="fa-solid fa-magnifying-glass" ></i>
+                </label>
+                <input id='userSearch' type='text' value={topUserName} onChange={handleChange}  onKeyDown={handleKeyPress} placeholder='Search'/>
+              </div>
+            
+              <button type='button' id='LanguageChange'>한국어</button>
+          </section>
+          <section>
+            <ul id='nav'>
+                <li><img id='lolLogo' src={lollogo}/></li>
+                <li><Link to="/">홈</Link></li>
+                <li><Link to="/1">챔피언 통계</Link></li>
+                <li><Link to="/2">티어리스트(챔피언분석)</Link></li>
+                <li><Link to="/3">랭킹</Link></li>
+                <li><Link to="/4">로테이션</Link></li>
             </ul>
-          </div>
-          <div id='ftThird' className='ft-wrap'>
-            <ul className='ft-ul'>
-              <li>자격증</li>
-              <li>정보처리산업기사</li>
-              <li>웹디자인기능사</li>
-              <li>정보처리기능사</li>
-              <li>ITQ 아래한글 A</li>
-            </ul>
-          </div>
-        </div>
-      </footer>
-    </main>
+          </section>
+        </header>
+        <Routes>
+          {/* 메인화면 */}
+          <Route path='/' element={<MainCon/>}/>
+          <Route path='1' element={<MainCon/>}/>
+          <Route path='2' element={<MainCon/>}/>
+          <Route path='3' element={<Ranking/>}/>
+          <Route path='4' element={<Rotation/>}/>
+
+          {/* 잘못된 요청일 경우 */}
+          <Route path='*' element={<div className='error-page'>존재하지 않는 페이지입니다.</div>}/>
+        </Routes>
+
+        <Footer/>
+      </main>
+    </MiniggContext.Provider>
   );
 }
 

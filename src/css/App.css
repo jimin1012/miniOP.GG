@@ -240,70 +240,117 @@ header > section:nth-of-type(2){
     font-size: 17px;
 }
 
-/* 메인 끝 */
 
-
-/* ---- 푸터시작---------- */
-
-footer{
+.middle-content{
     width: 100%;
-    height: 300px;
-    background-color: rgb(19, 18, 18);
-    display: flex;
-    justify-content: center;
-    color: rgb(216, 216, 216);
-}
-footer > div{
-    width: 100%;
-    max-width: 1100px;
-    height: 100%;
     display: flex;
     flex-direction: row;
 }
 
-#ftFirst{
-    width: 100%;
+/* 로테이션 */
+.rotation-wrap{
+    width: 50%;
     height: 100%;
+    background-color: #13151b;
+    min-width: 450px;
+    color: white;
+    text-align: center;
+}
+.rotation-wrap>p{
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.rotation-wrap>a{
+    width: 95%;
+    background-color: #272a30;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+}
+#rotationChampionWrap{
+   
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.rotation-champion{
+    width: 100px;
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
+    align-items: center;
+}
+.rotation-champion>img{
+    width: 60px;
+    height: auto;
 }
 
-#ftFirst > img{
-    width: 100px;
-}
-
-#ftFirst > a{
-    margin-top: 40px;
-    text-align: center;
-    display: inline-block;
-    width: 120px;
-    line-height: 40px;
-    border-radius: 5px;
-    height: 40px;
-    text-decoration: none;
+/* 랭킹 */
+.ranking-wrap{
+    width: 50%;
+    height: 100%;
+    background-color: #13151b;
+    min-width: 450px;
     color: white;
-    background-color: #e2343c;
+    text-align: center;
+}
+.ranking-wrap>div{
+    display: flex;
+    justify-content: center;
+}
+.ranking-wrap>p{
     font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
-.ft-wrap{
-    padding-top: 30px;
+
+.ranking-wrap>a{
+    width: 95%;
+    background-color: #272a30;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 41px;
+}
+
+#rankingTable{
+    width: 90%;
+}
+#rankingTable td{
+    height: 30px;
+}
+#rankingTable img{
+    width: 25px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.summonerName-wrap{
     padding-left: 10px;
-    /* border: 1px solid rgb(255, 255, 255); */
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
 
-.ft-ul{
-    list-style: none;
-}
-
-.ft-ul > li:first-child{
-    color: #6f6f70;
+.summonerName-wrap> span{
     font-size: 12px;
+    padding-left: 10px;
+    color: #98989b;
 }
 
-.ft-ul > li{
-    margin: 10px 0;
-}
 
-/* ============푸터 끝======== */
+
+
+/* 메인 끝 */
+
+
