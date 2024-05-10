@@ -1,0 +1,185 @@
+#findSummonerWrap{
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background-color: #13151b;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#findSummonerWrap >div{
+    width: 100%;
+    max-width: 1100px;
+    min-width: 800px;
+    height: 100%;
+    background-color: #13151b;
+
+}
+
+#findSummonerInfoWrap{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(58, 59, 59);
+}
+
+#summonerProfileIcon{
+    margin-left: 20px;
+}
+
+#summonerProfileIcon>img{
+    width: 130px;
+    height: auto;
+    border-radius: 15px;
+}
+
+#summonerInfo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#summonerInfo >div:nth-of-type(2){
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#summonerInfo >div:nth-of-type(2) span{
+    font-size: 18px;
+    color: #57585a;
+}
+
+#summonerLevel{
+
+    width: 100px;
+    border: 1px solid #13151b;
+    text-align: center;
+}
+
+#summonerTierWrap{
+    display: flex;
+    width: 100%;
+    
+}
+
+#soloRank{
+    width: 50%;
+}
+
+#soloRankInfo{
+    display: flex;
+    width: 100%;
+}
+
+#soloRankInfo>div:nth-of-type(1){
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#soloRankInfo>img{
+    width: 50px;
+    height: auto;
+}
+
+#teamRank{
+    width: 50%;
+}
+
+#teamRankInfo>div:nth-of-type(1){
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#teamRankInfo{
+    display: flex;
+    width: 100%;
+}
+
+#teamRankInfo > img{
+    width: 50px;
+    height: auto;
+}
+
+.tier{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.rank-division{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.matchs{
+    margin: 10px 0;
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #57585a;
+    border-top: 1px solid #57585a;
+}
+
+.pick-champion-img{
+    width: 40px;
+    height: auto;
+}
+
+.spell-first{
+    width: 20px;
+    height: auto;
+}
+
+.spell-second{
+    width: 20px;
+    height: auto;
+}
+
+.matchs-first-info{
+    font-size: 14px;
+
+    width: 130px;
+}
+
+.matchs-second-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.matchs-second-info >div:nth-of-type(1){
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.matchs-third-info img{
+    width: 40px;
+    height: auto;
+    border: 1px solid black;
+}
+
+.matchs-fourth-info img{
+    width: 20px;
+    height: auto;
+}
+
+.matchs-fourth-info{
+    width: 250px;
+    height: auto;
+    display: flex;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+}
+

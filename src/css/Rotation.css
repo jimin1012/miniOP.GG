@@ -1,0 +1,73 @@
+#rotationWrap{
+    width: 100%;
+    height: 100vh;
+    background-color: #13151b;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#rotationWrap >div{
+    width: 100%;
+    max-width: 1100px;
+    min-width: 800px;
+    height: 100%;
+    overflow: auto;
+
+}
+
+#rotationWrap table{
+    width: 100%;
+    height: 100%;
+
+}
+
+#rotationWrap table tr{
+    height: 50px;
+}
+
+#rotationWrap table th:first-child{
+    width: 15%;
+}
+
+#rotationWrap table th:last-child{
+    border-bottom: 1px solid #373738;
+}
+
+#rotationWrap table td >div{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+
+#rotationWrap img{
+    width: 40px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.matchedblurbs{
+    font-size: 11px;
+    color: #d7d8da;
+    border-bottom: 1px solid #373738;
+    box-sizing: border-box;
+}
+
+#rotationWrap >div::-webkit-scrollbar {
+    width: 7px;  
+}
+
+#rotationWrap >div::-webkit-scrollbar-thumb {
+    background: #363636;
+    border-radius:10px;
+    
+}
+
+#rotationWrap >div::-webkit-scrollbar-track {
+    border-radius:10px;
+    background: rgba(0, 0, 0, 0.8);  
+}

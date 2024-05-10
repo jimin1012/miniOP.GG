@@ -2,7 +2,7 @@ import './css/App.css';
 import lollogo from './images/lollogo.png'
 import logo from './images/image.png'
 import React, { useState, useContext,useEffect,createContext } from 'react';
-import {Routes, Route,Link} from "react-router-dom";
+import {Routes, Route,Link,useNavigate} from "react-router-dom";
 
 import championsData from './jsonList/champions.json'; // champions.json 파일의 경로에 맞게 조정
 
@@ -10,6 +10,8 @@ import Footer from './Footer';
 import MainCon from './MainContent';
 import Ranking from './Ranking';
 import Rotation from './Rotation';
+import Find from './Find';
+import FindError from './FindError';
 
 export const MiniggContext = createContext(); // 전역변수 생성
 
@@ -18,6 +20,11 @@ function App() {
   const [userName,setUserName] = useState("");
   const [championRotationList,setChampionRotationList] = useState([]);
   const [summonerRankingList,setSummonerRankingList] = useState([]);
+  const [summonerId,setSummonerId] = useState();
+  const [summoner, setSummoner] = useState("");
+
+  /* 페이지 이동 시 */
+  const navigate = useNavigate();
 
 
   const rotationList = ()=>{
@@ -39,7 +46,6 @@ function App() {
     .then(resp=>resp.json())
     .then(res=>{
       setSummonerRankingList(res);
-      console.log(res);
     })
     .catch(e=>{console.log(e);})
 
@@ -58,10 +64,6 @@ function App() {
   },[]);
 
   
- 
- 
-
-
 
   
 
@@ -72,7 +74,6 @@ function App() {
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      console.log('Enter key pressed!');
       event.preventDefault();
 
       console.log(topUserName.substring(topUserName.indexOf("#")+1));
@@ -82,11 +83,21 @@ function App() {
       let tag = topUserName.substring(topUserName.indexOf("#")+1);
 
       
-      fetch("http://localhost:8080/profile?nickName="+nickName+"&tag="+tag)
-      .then(resp=>resp.text())
+      fetch("http://localhost:8080/findSummoner?nickName="+nickName+"&tag="+tag)
+      .then(resp=>resp.json())
       .then(res=>{
-          // console.log(`res ${res}`);
+          console.log(res.responseCode);
           console.log(res);
+
+          if(res.responseCode === 200){
+            setSummoner(res);
+            setSummonerId(res.summonerId);
+            navigate("/find/"+nickName+"-"+tag);
+           
+          }else{
+            navigate("/find/error/"+topUserName);
+          }
+          
       })
       .catch(e=>{console.log(e);})
 
@@ -95,7 +106,7 @@ function App() {
   };
 
   return (
-    <MiniggContext.Provider value={{userName,setUserName,championRotationList,setChampionRotationList,summonerRankingList,setSummonerRankingList}}>
+    <MiniggContext.Provider value={{userName,setUserName,championRotationList,setChampionRotationList,summonerRankingList,setSummonerRankingList,summonerId,setSummonerId,summoner,setSummoner}}>
       <main>
         <header>
           <section>
@@ -127,6 +138,8 @@ function App() {
           <Route path='3' element={<Ranking/>}/>
           <Route path='4' element={<Rotation/>}/>
 
+          <Route path='/find/:summonerName' element={<Find/>}/>
+          <Route path='/find/error/:summonerName' element={<FindError/>}/>
           {/* 잘못된 요청일 경우 */}
           <Route path='*' element={<div className='error-page'>존재하지 않는 페이지입니다.</div>}/>
         </Routes>

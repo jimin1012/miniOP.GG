@@ -38,7 +38,7 @@ const MainCon = ()=>{
                         </div>
                     ))}
                     </div>
-                    <a>로테이션 보기</a>
+                    <Link to="/4">로테이션 보기</Link>
                 </div>
                 <div className='ranking-wrap'>
                     <p>랭킹(소환사)</p>
@@ -70,7 +70,7 @@ const MainCon = ()=>{
                         
                         </table>
                     </div>
-                    <a>랭킹보기</a>
+                    <Link to="/3">랭킹보기</Link>
                 </div>
             </div>
             <div className='content-wrap bottom-content'>
