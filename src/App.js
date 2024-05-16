@@ -97,7 +97,7 @@ function App() {
           }else{
             navigate("/find/error/"+topUserName);
           }
-          
+          setTopUserName("");
       })
       .catch(e=>{console.log(e);})
 
@@ -123,20 +123,16 @@ function App() {
             <ul id='nav'>
                 <li><img id='lolLogo' src={lollogo}/></li>
                 <li><Link to="/">홈</Link></li>
-                <li><Link to="/1">챔피언 통계</Link></li>
-                <li><Link to="/2">티어리스트(챔피언분석)</Link></li>
-                <li><Link to="/3">랭킹</Link></li>
-                <li><Link to="/4">로테이션</Link></li>
+                <li><Link to="/1">랭킹</Link></li>
+                <li><Link to="/2">로테이션</Link></li>
             </ul>
           </section>
         </header>
         <Routes>
           {/* 메인화면 */}
           <Route path='/' element={<MainCon/>}/>
-          <Route path='1' element={<MainCon/>}/>
-          <Route path='2' element={<MainCon/>}/>
-          <Route path='3' element={<Ranking/>}/>
-          <Route path='4' element={<Rotation/>}/>
+          <Route path='1' element={<Ranking/>}/>
+          <Route path='2' element={<Rotation/>}/>
 
           <Route path='/find/:summonerName' element={<Find/>}/>
           <Route path='/find/error/:summonerName' element={<FindError/>}/>

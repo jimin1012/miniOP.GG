@@ -8,6 +8,7 @@ import { MiniggContext } from './App';
 const MainCon = ()=>{
 
     const {userName,setUserName,championRotationList,setChampionRotationList,summonerRankingList,setSummonerRankingList} = useContext(MiniggContext);
+    console.log(summonerRankingList)
     return(
         <div className='main-wrap'>
             <div className='content-wrap top-content'>
@@ -41,8 +42,9 @@ const MainCon = ()=>{
                     <Link to="/4">로테이션 보기</Link>
                 </div>
                 <div className='ranking-wrap'>
-                    <p>랭킹(소환사)</p>
+                    <p>CHALLENGER 랭킹(소환사)</p>
                     <div>
+                        {summonerRankingList.length > 0 ?(
                         <table border={1} id='rankingTable'>
                             <tr>
                                 <th>#</th>
@@ -69,6 +71,13 @@ const MainCon = ()=>{
                             ))}
                         
                         </table>
+
+                        ) : (
+                        <div>
+                            데이터가 존재하지 않습니다.
+                        </div>
+                        )}
+                        
                     </div>
                     <Link to="/3">랭킹보기</Link>
                 </div>

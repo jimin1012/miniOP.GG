@@ -536,67 +536,67 @@ const Find = ()=>{
                             </div>
                             {10===10 && (
                                 <div className='matchs-fourth-info'>
-                                    <table>
+                                    <table className='myTeamTable'>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[0].championName}.png`}/>
-                                                <span>{data.myTeam[0].summonerName}</span>
+                                                <span>{data.myTeam[0].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[1].championName}.png`}/>
-                                                <span>소환사2</span>
+                                                <span>{data.myTeam[1].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[2].championName}.png`}/>
-                                                <span>소환사3</span>
+                                                <span>{data.myTeam[2].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[3].championName}.png`}/>
-                                                <span>소환사4</span>
+                                                <span>{data.myTeam[3].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[4].championName}.png`}/>
-                                                <span>소환사5</span>
+                                                <span>{data.myTeam[4].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                     </table>
-                                    <table>
+                                    <table className='enemyTeamTable'>
                                     <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[0].championName}.png`}/>
-                                                <span>소환사6</span>
+                                                <span>{data.enemyTeam[0].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[1].championName}.png`}/>
-                                                <span>소환사7</span>
+                                                <span>{data.enemyTeam[1].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[2].championName}.png`}/>
-                                                <span>소환사8</span>
+                                                <span>{data.enemyTeam[2].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[3].championName}.png`}/>
-                                                <span>소환사9</span>
+                                                <span>{data.enemyTeam[3].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[4].championName}.png`}/>
-                                                <span>소환사10</span>
+                                                <span>{data.enemyTeam[4].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                     </table>
@@ -614,7 +614,7 @@ const Find = ()=>{
 
 
                         <div>
-                            <button onClick={() => {
+                            <button id='findPlusBtn' onClick={() => {
                                 setPage((prev) => prev + 1); // 페이지 상태 업데이트
                                 fetchMatches(page + 1); // 다음 페이지 데이터 불러오기
                             }}>

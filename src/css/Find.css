@@ -175,7 +175,7 @@
 }
 
 .matchs-fourth-info{
-    width: 250px;
+    width: 400px;
     height: auto;
     display: flex;
     font-size: 12px;
@@ -183,3 +183,32 @@
     align-items: center;
 }
 
+.myTeamTable{
+    width: 200px;
+    
+}
+.myTeamTable span{
+    text-overflow:ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    width: 150px;
+    white-space: nowrap;
+}
+.enemyTeamTable{
+    width: 200px;
+}
+.enemyTeamTable span{
+    text-overflow:ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    width: 150px;
+    white-space: nowrap;
+}
+
+#findPlusBtn{
+    width: 100%;
+    height: 30px;
+    border: none;
+    background-color: white;
+    font-size: 14px;
+}
