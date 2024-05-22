@@ -311,7 +311,7 @@ const Find = ()=>{
 
        
 
-
+    console.log(leagueInfo);
     console.log(matches);
 
     return(
@@ -336,31 +336,23 @@ const Find = ()=>{
                             <div id='summonerTierWrap'>
                                 <div id='soloRank'>
                                     <p className='rank-division'>솔로랭크</p>
-                                    {leagueInfo.length > 0 && leagueInfo[0] !== undefined ?(
+                                    {leagueInfo.length > 0 && (leagueInfo[0] !== undefined && leagueInfo[0].queueType ==="RANKED_SOLO_5x5")  ?(
                                     <div id='soloRankInfo'>
                                         <img src={soloImg}/>
                                         <div>
-                                            {leagueInfo.length > 0 && leagueInfo[0].queueType ==="RANKED_SOLO_5x5" ? (
+                                            {leagueInfo.length > 0 && leagueInfo[0].queueType ==="RANKED_SOLO_5x5" && (
                                                 <p className='tier'>{leagueInfo[0].tier} {leagueInfo[0].rank}</p>
-                                            ) : (
-                                                <p className='tier'>{leagueInfo[1].tier} {leagueInfo[1].rank}</p>
                                             )}
-                                            {leagueInfo.length > 0  &&  leagueInfo[0].queueType ==="RANKED_SOLO_5x5" ?(
+
+                                            {leagueInfo.length > 0  &&  leagueInfo[0].queueType ==="RANKED_SOLO_5x5" &&(
                                                   <p>{leagueInfo[0].leaguePoints}LP</p>
-                                            ) : (
-                                                <p>{leagueInfo[1].leaguePoints}LP</p>
                                             )}
                                         </div>
-                                        {leagueInfo.length > 0 && leagueInfo[0].queueType ==="RANKED_SOLO_5x5" ?(
+                                        {leagueInfo.length > 0 && leagueInfo[0].queueType ==="RANKED_SOLO_5x5" &&(
                                             <div>
                                                 <p>{leagueInfo[0].wins}승 {leagueInfo[0].losses}패</p>
                                                 <p> 승률 {Math.round(leagueInfo[0].wins/(leagueInfo[0].wins+leagueInfo[0].losses)*100)}%</p>
                                             </div>   
-                                        ) :(
-                                            <div>
-                                                <p>{leagueInfo[1].wins}승 {leagueInfo[1].losses}패</p>
-                                                <p> 승률 {Math.round(leagueInfo[1].wins/(leagueInfo[1].wins+leagueInfo[1].losses)*100)}%</p>
-                                            </div> 
                                         )}      
                                     </div>
                                     ) : (
@@ -369,41 +361,72 @@ const Find = ()=>{
                                         <p className='tier'>Unranked</p>
                                     </div>
                                     )}
-
+                                    {leagueInfo.length > 1 && (leagueInfo[0] !== undefined && leagueInfo[0].queueType !=="RANKED_SOLO_5x5") && (
+                                    <div id='soloRankInfo'>
+                                             <img src={soloImg}/>
+                                             <div>
+                                                 {leagueInfo.length > 0 && leagueInfo[1].queueType ==="RANKED_SOLO_5x5" && (
+                                                    <p className='tier'>{leagueInfo[1].tier} {leagueInfo[1].rank}</p>
+                                                 )}
+     
+                                                 {leagueInfo.length > 0  &&  leagueInfo[1].queueType ==="RANKED_SOLO_5x5" &&(
+                                                    <p>{leagueInfo[1].leaguePoints}LP</p>
+                                                 )}
+                                             </div>
+                                             {leagueInfo.length > 0 && leagueInfo[1].queueType ==="RANKED_SOLO_5x5" &&(
+                                                 <div>
+                                                     <p>{leagueInfo[1].wins}승 {leagueInfo[1].losses}패</p>
+                                                     <p> 승률 {Math.round(leagueInfo[1].wins/(leagueInfo[1].wins+leagueInfo[1].losses)*100)}%</p>
+                                                 </div>   
+                                             )}      
+                                    </div>
+                                    )}
                                 </div>
+
                                 <div id='teamRank'>
                                     <p className='rank-division'>자유랭크</p>
-                                    {leagueInfo.length > 0 && leagueInfo[1] !== undefined  ? (
+                                    {leagueInfo.length > 0 && (leagueInfo[0] !== undefined && leagueInfo[0].queueType ==="RANKED_FLEX_SR")  ? (
                                     <div id='teamRankInfo'>
                                         <img src={teamImg}/>
                                         <div>
-                                            {leagueInfo.length > 0  && leagueInfo[1].queueType === "RANKED_FLEX_SR" ?(
-                                                <p className='tier'>{leagueInfo[1].tier} {leagueInfo[1].rank}</p>
-                                            ) : (
+                                            {leagueInfo.length > 0  && leagueInfo[0].queueType === "RANKED_FLEX_SR" &&(
                                                 <p className='tier'>{leagueInfo[0].tier} {leagueInfo[0].rank}</p>
                                             )}
-                                            {leagueInfo.length > 0  && leagueInfo[1].queueType ==="RANKED_FLEX_SR" ?(
-                                                <p>{leagueInfo[1].leaguePoints}LP</p>
-                                            ) : (
+                                            {leagueInfo.length > 0  && leagueInfo[0].queueType ==="RANKED_FLEX_SR" &&(
                                                 <p>{leagueInfo[0].leaguePoints}LP</p>
-                                            )}
+                                            ) }
                                         </div>
-                                        {leagueInfo.length > 0  && leagueInfo[1].queueType ==="RANKED_FLEX_SR" ?(
-                                            <div>
-                                                <p>{leagueInfo[1].wins}승 {leagueInfo[1].losses}패</p>
-                                                <p> 승률 {Math.round(leagueInfo[1].wins/(leagueInfo[1].wins+leagueInfo[1].losses)*100)}%</p>
-                                            </div>   
-                                        ) : (
+                                        {leagueInfo.length > 0  && leagueInfo[0].queueType ==="RANKED_FLEX_SR" &&(
                                             <div>
                                                 <p>{leagueInfo[0].wins}승 {leagueInfo[0].losses}패</p>
                                                 <p> 승률 {Math.round(leagueInfo[0].wins/(leagueInfo[0].wins+leagueInfo[0].losses)*100)}%</p>
-                                            </div> 
+                                            </div>   
                                         )}       
                                     </div>
                                     ) : (
                                     <div id='teamRankInfo'>
                                         <img src={teamImg}/>
                                         <p className='tier'>Unranked</p>
+                                    </div>
+                                    )}
+
+                                    {leagueInfo.length > 1 && (leagueInfo[0] !== undefined && leagueInfo[1].queueType ==="RANKED_FLEX_SR") && (
+                                    <div id='teamRankInfo'>
+                                        <img src={teamImg}/>
+                                        <div>
+                                            {leagueInfo.length > 0  && leagueInfo[1].queueType === "RANKED_FLEX_SR" &&(
+                                                <p className='tier'>{leagueInfo[1].tier} {leagueInfo[1].rank}</p>
+                                            )}
+                                            {leagueInfo.length > 0  && leagueInfo[1].queueType ==="RANKED_FLEX_SR" &&(
+                                                <p>{leagueInfo[1].leaguePoints}LP</p>
+                                            ) }
+                                        </div>
+                                        {leagueInfo.length > 0  && leagueInfo[1].queueType ==="RANKED_FLEX_SR" &&(
+                                            <div>
+                                                <p>{leagueInfo[1].wins}승 {leagueInfo[1].losses}패</p>
+                                                <p> 승률 {Math.round(leagueInfo[1].wins/(leagueInfo[1].wins+leagueInfo[1].losses)*100)}%</p>
+                                            </div>   
+                                        )}       
                                     </div>
                                     )}
                                 </div>
