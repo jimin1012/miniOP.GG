@@ -29,10 +29,16 @@ You may also see any lint errors in the console.
 <details>
   <summary>메인</summary>
   <div markdown="1">
-    <ul>
-      <li><img src=""></li>
-      <li><img src=""></li>
-    </ul>
+    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/a2f3280e-5c96-41f4-9fa0-9d50c3cd3be7" width=70%>
+    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/6d5a2167-22dc-4206-bb66-813feff557a9" width=70%>
+  </div>
+</details>
+
+<details>
+  <summary>로테이션</summary>
+  <div markdown="1">
+    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/a2f3280e-5c96-41f4-9fa0-9d50c3cd3be7" width=70%>
+    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/6d5a2167-22dc-4206-bb66-813feff557a9" width=70%>
   </div>
 </details>
 
