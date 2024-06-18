@@ -22,4 +22,18 @@ You may also see any lint errors in the console.
 라이엇에서 제공하는 api 정보들을 받기 위해서는 https://developer.riotgames.com/
 해당 사이트에서 키를 받아 사용해야한다.
 
+
+# 화면
+(미완)
+
+<details>
+  <summary>메인</summary>
+  <div markdown="1">
+    <ul>
+      <li><img src=""></li>
+      <li><img src=""></li>
+    </ul>
+  </div>
+</details>
+
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fjimin1012%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
