@@ -58,4 +58,7 @@ You may also see any lint errors in the console.
     미완성
   </div>
 </details>
+
+아직 전체적으로 부족한 부분이 많은 거 같다고 느껴서 시간이 남을 때 좀 더 수정해야겠다.
+
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fjimin1012%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
