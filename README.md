@@ -29,16 +29,16 @@ You may also see any lint errors in the console.
 <details>
   <summary>메인</summary>
   <div markdown="1">
-    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/a2f3280e-5c96-41f4-9fa0-9d50c3cd3be7" width=70%>
-    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/6d5a2167-22dc-4206-bb66-813feff557a9" width=70%>
+    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/a2f3280e-5c96-41f4-9fa0-9d50c3cd3be7" width=80%>
+    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/6d5a2167-22dc-4206-bb66-813feff557a9" width=80%>
   </div>
 </details>
 
 <details>
   <summary>로테이션</summary>
   <div markdown="1">
-    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/a2f3280e-5c96-41f4-9fa0-9d50c3cd3be7" width=70%>
-    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/6d5a2167-22dc-4206-bb66-813feff557a9" width=70%>
+    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/98711d6e-5414-47a9-9283-0d5f792bcf2f" width=80%>
+    <img src="https://github.com/jimin1012/miniOP.GG/assets/154505232/e80bece4-fd9c-46b8-812f-64d79f0be675" width=80%>
   </div>
 </details>
 
