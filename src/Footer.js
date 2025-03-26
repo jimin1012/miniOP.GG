@@ -17,6 +17,7 @@ const Footer = ()=>{
                     <li>경력</li>
                     <li>(주)와임</li>
                     <li>티쿤글로벌</li>
+                    <li>유비젠에스엔티</li>
                     </ul>
                 </div>
                 <div id='ftThird' className='ft-wrap'>
@@ -26,7 +27,7 @@ const Footer = ()=>{
                     <li>웹디자인기능사</li>
                     <li>정보처리기능사</li>
                     <li>ITQ 아래한글 A</li>
-                    <li>정보처리기사 (필기)</li>
+                    {/* <li>정보처리기사 (필기)</li> */}
                     </ul>
                 </div>
             </div>

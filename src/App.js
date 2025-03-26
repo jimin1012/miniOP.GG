@@ -27,7 +27,7 @@ function App() {
   const navigate = useNavigate();
 
 
-  const rotationList = ()=>{
+  /* const rotationList = ()=>{
     fetch("http://localhost:8080/championRotationList")
     .then(resp=>resp.json())
     .then(res=>{
@@ -38,7 +38,7 @@ function App() {
 
     })
     .catch(e=>{console.log(e);})
-
+   
   }
 
   const leagueRankingList = ()=>{
@@ -49,7 +49,7 @@ function App() {
     })
     .catch(e=>{console.log(e);})
 
-  }
+  } */
   
 
 
@@ -59,8 +59,21 @@ function App() {
     script.src = "https://kit.fontawesome.com/0ddb604158.js";
     script.crossorigin = "anonymous";
     document.body.appendChild(script);
-    rotationList();
-    leagueRankingList();
+
+    // 병렬로 API 호출
+  Promise.all([
+    fetch("http://localhost:8080/championRotationList").then(resp => resp.json()),
+    fetch("http://localhost:8080/LeagueRanking").then(resp => resp.json())
+  ])
+  .then(([rotationRes, rankingRes]) => {
+    setChampionRotationList(Object.keys(championsData.data).filter(championName => 
+      rotationRes.freeChampionIds.includes(parseInt(championsData.data[championName].key))
+    ));
+    setSummonerRankingList(rankingRes);
+  })
+  .catch(e => { console.log(e); });
+    //rotationList();
+    //leagueRankingList();
   },[]);
 
   

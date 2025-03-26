@@ -1,6 +1,6 @@
 #rankingListWrap{
     width: 100%;
-    min-height: 100vh;
+    min-height: 60vh;
     height: 100%;
     background-color: #13151b;
 
@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 #rankingListWrap>div:nth-of-type(1){
@@ -52,3 +53,18 @@
 #rankingListWrap ul li{
     margin: 0 5px;
 }
+
+.pagination a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.active{
+    text-decoration: underline;
+}
+
+.pagination {
+    margin-bottom: 15px;
+}
+
