@@ -56,6 +56,8 @@ const Find = ()=>{
 
     const getSummonerId = ()=>{
 
+        
+
         fetch("http://localhost:8080/findSummoner?nickName="+nickName+"&tag="+tag)
         .then(resp=>resp.json())
         .then(res=>{
@@ -297,10 +299,13 @@ const Find = ()=>{
                     enemyTeam : enemyTeam,
                  };
             });
-    
+           
 
-            console.log(matchInfo);
+            
+            // 새로운 검색이 시작되므로 matches 초기화
+            setMatches([]);
             setMatches((prev) => [...prev, ...matchInfo]); // 기존 데이터에 새로운 데이터 추가
+            
         } catch(e) {
             console.log(e);
             console.error("매치 정보를 가져오는 중 오류가 발생했습니다:", e);
@@ -321,7 +326,7 @@ const Find = ()=>{
                     <div id='findSummonerInfoWrap'>
                         <div id='summonerProfileIcon'>
                             {summoner !== "" && (
-                            <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/profileicon/${summoner.profileIconId}.png`}/>
+                            <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/profileicon/${summoner.profileIconId}.png`}/>
                             )}
                         </div>
                         <div id='summonerInfo'>
@@ -539,54 +544,54 @@ const Find = ()=>{
                                 <p>{data.gameDuration}</p>
                             </div>
                             <div className='matchs-second-info'>
-                                <img className='pick-champion-img' src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.championName}.png`}/>
+                                <img className='pick-champion-img' src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.championName}.png`}/>
                                 <div>
-                                    <img className='spell-first' src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/spell/${data.summoner1Id}.png`}/>
-                                    <img className='spell-second' src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/spell/${data.summoner2Id}.png`}/>
+                                    <img className='spell-first' src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/spell/${data.summoner1Id}.png`}/>
+                                    <img className='spell-second' src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/spell/${data.summoner2Id}.png`}/>
                                 </div>
                                 <div>
                                     {data.kills} / {data.deaths} / {data.assists}
                                 </div>
                             </div>
                             <div className='matchs-third-info'>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${data.item0}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${data.item1}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${data.item2}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${data.item3}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${data.item4}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${data.item5}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
-                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${data.item6}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/item/${data.item0}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/item/${data.item1}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/item/${data.item2}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/item/${data.item3}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/item/${data.item4}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/item/${data.item5}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
+                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/item/${data.item6}.png`} onError={e => e.target.src='https://img.freepik.com/premium-photo/color-background-for-presentations-decorative-design-layout-template-insert-text-with-copy-space_7954-5787.jpg'}/>
                             </div>
                             {10===10 && (
                                 <div className='matchs-fourth-info'>
                                     <table className='myTeamTable'>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[0].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.myTeam[0].championName}.png`}/>
                                                 <span>{data.myTeam[0].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[1].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.myTeam[1].championName}.png`}/>
                                                 <span>{data.myTeam[1].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[2].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.myTeam[2].championName}.png`}/>
                                                 <span>{data.myTeam[2].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[3].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.myTeam[3].championName}.png`}/>
                                                 <span>{data.myTeam[3].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.myTeam[4].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.myTeam[4].championName}.png`}/>
                                                 <span>{data.myTeam[4].riotIdGameName}</span>
                                             </td>
                                         </tr>
@@ -594,31 +599,31 @@ const Find = ()=>{
                                     <table className='enemyTeamTable'>
                                     <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[0].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.enemyTeam[0].championName}.png`}/>
                                                 <span>{data.enemyTeam[0].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[1].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.enemyTeam[1].championName}.png`}/>
                                                 <span>{data.enemyTeam[1].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[2].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.enemyTeam[2].championName}.png`}/>
                                                 <span>{data.enemyTeam[2].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[3].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.enemyTeam[3].championName}.png`}/>
                                                 <span>{data.enemyTeam[3].riotIdGameName}</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${data.enemyTeam[4].championName}.png`}/>
+                                                <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${data.enemyTeam[4].championName}.png`}/>
                                                 <span>{data.enemyTeam[4].riotIdGameName}</span>
                                             </td>
                                         </tr>

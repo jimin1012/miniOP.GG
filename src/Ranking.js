@@ -92,7 +92,7 @@ const Ranking = () => {
                                     <td>
                                         <div className="summonerName-wrap"> {/* 소환사 이름과 아이콘 */}
                                             <img
-                                                src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/profileicon/${rank.profileIconId}.png`}
+                                                src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/profileicon/${rank.profileIconId}.png`}
                                                 alt="프로필 아이콘" // 소환사 프로필 아이콘 이미지
                                             />
                                             {rank.gameName} <span>#{rank.tagLine}</span> {/* 소환사 이름과 태그 */}

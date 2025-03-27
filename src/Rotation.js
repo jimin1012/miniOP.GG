@@ -29,7 +29,7 @@ const Rotation = ()=>{
                             <tr key={index}>
                                 <td>
                                     <div>
-                                        <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${championId}.png`}/>
+                                        <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${championId}.png`}/>
                                         <span>{championId}</span>
                                     </div>
                                 </td>

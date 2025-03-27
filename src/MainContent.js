@@ -34,7 +34,7 @@ const MainCon = ()=>{
                     <div id='rotationChampionWrap'>
                     {championRotationList.map((championId, index) => (
                         <div className='rotation-champion' key={index}>
-                            <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${championId}.png`}/>
+                            <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/champion/${championId}.png`}/>
                             <p>{championId}</p>
                         </div>
                     ))}
@@ -59,7 +59,7 @@ const MainCon = ()=>{
                                 <td>{++index}</td>
                                 <td>
                                     <div className='summonerName-wrap'>
-                                        <img src={`https://ddragon.leagueoflegends.com/cdn/14.9.1/img/profileicon/${data.profileIconId}.png`}/>
+                                        <img src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/profileicon/${data.profileIconId}.png`}/>
                                         {data.gameName} <span>#{data.tagLine}</span>
                                     </div>
                                 </td>
