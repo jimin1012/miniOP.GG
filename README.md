@@ -55,7 +55,7 @@ You may also see any lint errors in the console.
 <details>
   <summary>랭킹</summary>
   <div markdown="1">
-    <img src="[https://github.com/jimin1012/miniOP.GG/assets/154505232/43163adc-5905-4586-9841-5289f695edb1](https://github.com/user-attachments/assets/375788bb-e0ac-4898-994d-3308032366e6)" width=80%>
+    <img src="https://github.com/user-attachments/assets/375788bb-e0ac-4898-994d-3308032366e6" width=80%>
     
   </div>
 </details>
