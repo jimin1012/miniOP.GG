@@ -41,15 +41,25 @@ const Find = ()=>{
     useEffect(() => {
         getSummonerId();
         // fetchMatches(0);
+
+        // 새로운 검색이 시작되므로 matches 초기화
+        //setMatches([]);
     }, []); // 컴포넌트가 마운트될 때 한 번만 getSummonerId 함수를 호출합니다.
     
     useEffect(() => {
         if (summonerId) {
+            //getSummonerId();
             LeagueInfoList();
             fetchMatches(0);
+            
         }
     }, [summonerId,page]); // summonerId가 변경될 때마다 LeagueInfoList를 호출합니다.
     
+    useEffect(() => {
+       // 새로운 검색이 시작되므로 matches 초기화
+        setMatches([]);
+    }, [summonerId]);
+
     // useEffect(() => {
     //     fetchMatches(0);
     // }, [page]);
@@ -302,8 +312,7 @@ const Find = ()=>{
            
 
             
-            // 새로운 검색이 시작되므로 matches 초기화
-            setMatches([]);
+      
             setMatches((prev) => [...prev, ...matchInfo]); // 기존 데이터에 새로운 데이터 추가
             
         } catch(e) {

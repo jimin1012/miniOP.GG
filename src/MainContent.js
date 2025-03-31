@@ -39,7 +39,7 @@ const MainCon = ()=>{
                         </div>
                     ))}
                     </div>
-                    <Link to="/4">로테이션 보기</Link>
+                    <Link to="/2">로테이션 보기</Link>
                 </div>
                 <div className='ranking-wrap'>
                     <p>CHALLENGER 랭킹(소환사)</p>
@@ -79,7 +79,7 @@ const MainCon = ()=>{
                         )}
                         
                     </div>
-                    <Link to="/3">랭킹보기</Link>
+                    <Link to="/1">랭킹보기</Link>
                 </div>
             </div>
             <div className='content-wrap bottom-content'>
