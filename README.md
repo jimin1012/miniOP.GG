@@ -24,7 +24,7 @@ You may also see any lint errors in the console.
 
 
 # 화면
-(미완)
+
 
 <details>
   <summary>메인</summary>
